@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultura Gráfica en Argentina</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xyy3qav.css">
 </head>
 
 <body>
-    <header>
+    <header class="flex">
         <div class="limit-width-container">
             <a href="index.html"><img src="img/lad-logo.png" width="104" height="auto"
                     alt="Logo del LAD: Laboratorio de Diseño UNLa"></a>
@@ -20,26 +22,28 @@
                 <a href="#">Edición</a>
                 <a href="#">Acerca del proyecto</a>
             </nav>
-            <div><!-- acá va el buscador pero ni idea cómo hacerlo, lo puse solo para que me una caja y flexearlo -->
+            <div id="buscador"><!-- acá va el buscador pero ni idea cómo hacerlo, lo puse solo para que me una caja y flexearlo -->
             </div>
         </div>
     </header>
 
     <main>
-        <section id="hero">
-            <h3>/ Historia, Memoria Gráfica y Diseño</h3>
-            <h1>Patrimonio y Cultura Gráfica argentina</h1>
+        <div class="limit-width-container">
+        <section id="hero" >
+            <h3>/    Historia, Memoria Gráfica y Diseño</h3>
+            <h1>Patrimonio y Cultura Gráfica Argentina</h1>
             <p>Relevamiento y puesta en valor de publicaciones especializadas en la industria gráfica local en la
                 primera mitad del siglo XX, mediante el diseño y las tecnologías digitales. Las revistas Éxito Gráfico y
                 Argentina Gráfica
                 y la revalorización de la memoria gráfica para una historia del diseño en Argentina.</p>
             <button>Ver Revistas</button>
         </section>
-        <section id="revistas">
-            <h3>/ Consulta de repositorios</h3>
+        </div>
+        <section id="revistas" class="limit-width-container">
+            <h3>/    Consulta de repositorios</h3>
             <h2>Revistas</h2>
             <div>
-                <!--acá van las cards de los artículos, pero no sé si hay una forma linda de hacerlo o directamente te pongo un default para que lo hagan o no-->
+                <!--acá van las cards de los artículos, pero no sabía si hay una forma linda de hacerlo como componente-->
             </div>
         </section>
     </main>
