@@ -1,0 +1,108 @@
+/* CSS DOCUMENT */
+@charset "UTF-8";
+
+/*configuraciones generales*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "adelle-sans", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    align-items: center;
+}
+
+.limit-width-container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 10px 0;
+    display: flex;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: #91001F;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 24px;
+    letter-spacing: 0.03rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+/*-------HEADER---------*/
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f8f7f4;
+}
+
+header .limit-width-container {
+    justify-content: space-between;
+
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+}
+
+header nav a {
+    padding: 8px 15px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: #5a5a5a;
+}
+
+header #buscador {
+    width: 225px;
+    height: 35px;
+    border-radius: 55px;
+    background-color: white;
+}
+
+/*----------MAIN---------*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 60vh;
+    justify-content: center;
+    max-width: 750px;
+    align-self: flex-start;
+    gap: 25px;
+}
+
+#hero h3 {
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#hero p {
+    color: #929292;
+}
+
+#revistas {
+    flex-direction: column;
+    align-items: flex-start;
+}
