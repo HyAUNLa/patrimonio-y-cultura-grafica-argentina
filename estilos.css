@@ -56,7 +56,7 @@ header nav {
     gap: 15px;
 }
 
-header nav a {
+header nav a, .about nav a {
     padding: 8px 15px;
     font-weight: 500;
     font-size: 14px;
@@ -107,4 +107,84 @@ h1 {
 #revistas {
     flex-direction: column;
     align-items: flex-start;
+}
+
+/*-------ACERCA DE------*/
+
+.textos-sobre-imagen, .textos-sobre-imagen h3, #hero p{
+    color: #FFFFFF
+}
+
+.hero-fondo {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(0deg, rgba(145, 0, 31, 0.40) 0%, rgba(145, 0, 31, 0.40) 100%), url(img/argentinagrafica-197805-259.png) lightgray 50% / cover no-repeat;
+    
+    box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.14), 0 6px 30px 0 rgba(0, 0, 0, 0.12), 0 8px 10px 0 rgba(0, 0, 0, 0.20);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    margin-top: 104px;
+    align-items: flex-start;
+
+    p {
+        color:#5a5a5a;
+        max-width: 750px;
+    }
+
+    h2 {
+        font-size: 4rem
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 300px;
+        gap: 24px;
+        margin: 55px 0px 55px 0px;
+    }
+
+    .limit-width-container {
+        padding: 0px;
+        max-width: 1100px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+}
+
+#importancia, #miembros, #docentes-inv, #inv-graduados, #fecha-tec, #laboratorio-diseno, #unla {
+    width: 100%;
+    max-width: 984px;
+}
+
+#importancia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+#miembros {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+#miembros div {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+#miembros p {
+    max-width: 624px;
 }
