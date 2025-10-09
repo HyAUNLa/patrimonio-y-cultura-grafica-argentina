@@ -1,0 +1,69 @@
+.revistas aside {
+  width: 30%;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.revistas main {
+  width: 70%;
+  padding: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.revistas #revistas-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.revistas .content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.revistas p {
+  margin-bottom: 10px;
+}
+
+.revistas h2 {
+  margin-bottom: 60px;
+}
+
+.revista-infocard {
+  width: 300px;
+}
+
+.revista-infocard img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+#botones {
+  display: flex;
+  gap: 1rem;
+}
+
+#botones button {
+  border: 2px solid #91001f;
+  background-color: #faf6f6;
+  color: #91001f;
+  height: 40px;
+  width: 110px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#botones button:hover {
+  background-color: #f2e8e8;
+}
+
+#botones button.activo {
+  background-color: #91001f;
+  color: #faf6f6;
+  font-weight: 600;
+}
