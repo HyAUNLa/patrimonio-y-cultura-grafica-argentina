@@ -44,33 +44,36 @@ header {
     justify-content: center;
     width: 100%;
     background-color: #f8f7f4;
+
+    .limit-width-container {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    nav a,
+    .about nav a {
+        padding: 8px 15px;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+        color: #5a5a5a;
+    }
+
+    #buscador {
+        width: 225px;
+        height: 35px;
+        border-radius: 55px;
+        background-color: white;
+    }
+
 }
 
-header .limit-width-container {
-    justify-content: space-between;
 
-}
-
-header nav {
-    display: flex;
-    gap: 15px;
-}
-
-header nav a, .about nav a {
-    padding: 8px 15px;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-    color: #5a5a5a;
-}
-
-header #buscador {
-    width: 225px;
-    height: 35px;
-    border-radius: 55px;
-    background-color: white;
-}
 
 /*----------MAIN---------*/
 
@@ -94,14 +97,14 @@ main {
 
 #hero h3 {
     text-transform: uppercase;
+
+    p {
+        color: #929292;
+    }
 }
 
 h1 {
     font-size: 4rem;
-}
-
-#hero p {
-    color: #929292;
 }
 
 #revistas {
@@ -111,13 +114,14 @@ h1 {
 
 /*-------ACERCA DE------*/
 
-.textos-sobre-imagen, .textos-sobre-imagen h3, #hero p{
+.textos-sobre-imagen,
+.textos-sobre-imagen h3,
+#hero p {
     color: #FFFFFF
 }
 
 .hero-fondo {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(0deg, rgba(145, 0, 31, 0.40) 0%, rgba(145, 0, 31, 0.40) 100%), url(img/argentinagrafica-197805-259.png) lightgray 50% / cover no-repeat;
-    
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.14), 0 6px 30px 0 rgba(0, 0, 0, 0.12), 0 8px 10px 0 rgba(0, 0, 0, 0.20);
     width: 100%;
     display: flex;
@@ -129,7 +133,7 @@ h1 {
     align-items: flex-start;
 
     p {
-        color:#5a5a5a;
+        color: #5a5a5a;
         max-width: 750px;
     }
 
@@ -156,7 +160,13 @@ h1 {
 
 }
 
-#importancia, #miembros, #docentes-inv, #inv-graduados, #fecha-tec, #laboratorio-diseno, #unla {
+#importancia,
+#miembros,
+#docentes-inv,
+#inv-graduados,
+#fecha-tec,
+#laboratorio-diseno,
+#unla {
     width: 100%;
     max-width: 984px;
 }
