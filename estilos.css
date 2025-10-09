@@ -23,6 +23,7 @@
 body {
     display: flex;
     flex-direction: column;
+    background-color: #F8F7F4;
 }
 
 h3 {
@@ -35,6 +36,15 @@ h3 {
 
 h2 {
     font-size: 3rem;
+}
+
+footer {
+    height: 50px;
+}
+
+p {
+    text-wrap-style: pretty;
+    color: #7f7f7f;
 }
 
 /*-------HEADER---------*/
@@ -54,16 +64,6 @@ header {
         gap: 15px;
     }
 
-    nav a,
-    .about nav a {
-        padding: 8px 15px;
-        font-weight: 500;
-        font-size: 14px;
-        letter-spacing: 1.25px;
-        text-transform: uppercase;
-        color: #5a5a5a;
-    }
-
     #buscador {
         width: 225px;
         height: 35px;
@@ -71,6 +71,16 @@ header {
         background-color: white;
     }
 
+}
+
+nav a,
+.about nav a {
+    padding: 8px 15px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #5a5a5a;
 }
 
 
@@ -131,15 +141,12 @@ h1 {
 .about {
     margin-top: 104px;
     align-items: flex-start;
+    gap: 100px;
 
     p {
-        color: #5a5a5a;
         max-width: 750px;
     }
 
-    h2 {
-        font-size: 4rem
-    }
 
     nav {
         display: flex;
@@ -148,14 +155,16 @@ h1 {
         max-width: 300px;
         gap: 24px;
         margin: 55px 0px 55px 0px;
+        position: sticky;
+        top: 100px;
     }
 
     .limit-width-container {
         padding: 0px;
         max-width: 1100px;
-        justify-content: center;
         flex-direction: column;
         gap: 80px;
+        align-items: flex-start;
     }
 
 }
@@ -164,8 +173,8 @@ h1 {
 #miembros,
 #docentes-inv,
 #inv-graduados,
-#fecha-tec,
-#laboratorio-diseno,
+#ficha-tec,
+#lab-diseno,
 #unla {
     width: 100%;
     max-width: 984px;
@@ -179,22 +188,67 @@ h1 {
 
     p {
         font-size: 1.2rem;
+        line-height: 2.2rem;
     }
 }
 
-#miembros {
+#miembros,
+#docentes-inv,
+#ficha-tec,
+#lab-diseno,
+#unla {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 20px;
+
+    div {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        padding-bottom: 50px;
+    }
+
+    p {
+        line-height: 1.7rem;
+        letter-spacing: 0.02rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        padding-bottom: 5px;
+    }
+
+    h4 {
+        font-size: 34px;
+        padding-bottom: 15px;
+        font-weight: 500;
+    }
 }
 
-#miembros div {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
+#miembros,
+#docentes-inv {
+    p {
+        max-width: 624px;
+    }
+
+    /*
+    h3 {
+        font-size: 1rem;
+        padding-bottom: 5px;
+    }
+
+    h4 {
+        font-size: 34px;
+        padding-bottom: 15px;
+        font-weight: 500;
+    }*/
 }
 
-#miembros p {
-    max-width: 624px;
+#ficha-tec,
+#lab-diseno,
+#unla {
+    p {
+        max-width: 900px;
+    }
 }
