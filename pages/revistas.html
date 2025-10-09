@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cultura Gráfica en Argentina</title>
+    <link rel="stylesheet" type="text/css" href="../estilos.css" />
+    <link rel="stylesheet" type="text/css" href="revistas.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/xyy3qav.css" />
+  </head>
+
+  <body class="revistas">
+    <header class="flex">
+      <div class="limit-width-container">
+        <a href="../index.html"
+          ><img
+            src="../img/lad-logo.png"
+            width="104"
+            height="auto"
+            alt="Logo del LAD: Laboratorio de Diseño UNLa"
+        /></a>
+        <nav>
+          <a style="pointer-events: none; font-weight: 700">Revistas</a>
+          <a href="#">Períodos</a>
+          <a href="#">Instiución</a>
+          <a href="#">Personalidad</a>
+          <a href="#">Edición</a>
+          <a href="../acerca-de.html">Acerca del proyecto</a>
+        </nav>
+        <div id="buscador">
+          <!-- acá va el buscador pero ni idea cómo hacerlo, lo puse solo para que me una caja y flexearlo -->
+        </div>
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <h3>/ Revistas</h3>
+        <h2>Éxito Gráfico</h2>
+        <div>
+          <h6>TÍTULO</h6>
+          <p>Éxito Gráfico. Revista mensual sudamericana de Artes Gráficas.</p>
+
+          <h6>TIRADA</h6>
+          <p>1905 (agosto) – 1916</p>
+
+          <h6>DIRECCIÓN</h6>
+          <p>Antonio Pellicer</p>
+
+          <h6>CASA EDITORIAL</h6>
+          <p>Curt Berger y Compañía</p>
+
+          <h6>NOTAS</h6>
+          <p>
+            Éxito gráfico, lleva como subtítulo “revista mensual sudamericana de
+            Artes Gráficas”. Inició su aparición con el primer número de agosto
+            de 1905 bajo la dirección de Antonio Pellicer estando a cargo de la
+            edición de la Revista la casa Curt Berger y Compañía.
+          </p>
+        </div>
+      </aside>
+
+      <main>
+        <div id="botones">
+          <button data-anio="1907">1907</button>
+          <button data-anio="1908">1908</button>
+          <button data-anio="1909">1909</button>
+        </div>
+        <div id="revistas-container"></div>
+      </main>
+
+      <script>
+        const revistas = [
+          {
+            imagen: "../img/revistas/EG_0001.png",
+            titulo: "Éxito Gráfico",
+            anio: 1907,
+            volumen: 11,
+            numero: "Nº 15",
+          },
+          {
+            imagen: "../img/revistas/EG_0002.png",
+            titulo: "Éxito Gráfico",
+            anio: 1907,
+            volumen: 12,
+            numero: "Nº 16",
+          },
+          {
+            imagen: "../img/revistas/EG_0003.png",
+            titulo: "Éxito Gráfico",
+            anio: 1908,
+            volumen: 13,
+            numero: "Nº 17",
+          },
+          {
+            imagen: "../img/revistas/EG_0004.png",
+            titulo: "Éxito Gráfico",
+            anio: 1908,
+            volumen: 14,
+            numero: "Nº 18",
+          },
+          {
+            imagen: "../img/revistas/EG_0005.png",
+            titulo: "Éxito Gráfico",
+            anio: 1909,
+            volumen: 15,
+            numero: "Nº 19",
+          },
+          {
+            imagen: "../img/revistas/EG_0006.png",
+            titulo: "Éxito Gráfico",
+            anio: 1909,
+            volumen: 16,
+            numero: "Nº 20",
+          },
+        ];
+
+        const contenedor = document.getElementById("revistas-container");
+        const botones = document.querySelectorAll("#botones button");
+
+        function renderRevistas(filtroAnio = null) {
+          contenedor.innerHTML = "";
+          const filtradas = filtroAnio
+            ? revistas.filter((r) => r.anio === filtroAnio)
+            : revistas;
+          filtradas.forEach((revista) => {
+            const card = document.createElement("div");
+            card.className = "revista-infocard";
+
+            const imagen = revista?.imagen || "../img/revistas/placeholder.png";
+            const titulo = revista?.titulo || "Título no disponible";
+            const anio = revista?.anio ?? "—";
+            const volumen = revista?.volumen ?? "—";
+            const numero = revista?.numero || "—";
+
+            card.innerHTML = `
+      <img src="${imagen}" alt="${titulo}">
+      <h3>${titulo}</h3>
+      <p>Año ${anio} - Volumen ${volumen}</p>
+      <p>${numero}</p>
+    `;
+
+            const img = card.querySelector("img");
+            img.onerror = () => {
+              img.src = "../img/revistas/placeholder.png";
+            };
+
+            contenedor.appendChild(card);
+          });
+        }
+
+        botones.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            botones.forEach((b) => b.classList.remove("activo"));
+            btn.classList.add("activo");
+            const anio = parseInt(btn.getAttribute("data-anio"));
+            renderRevistas(anio);
+          });
+        });
+
+        renderRevistas();
+      </script>
+
+      <style>
+        #botones button.activo {
+          background-color: #91001f;
+          color: #fff;
+          font-weight: 700;
+        }
+      </style>
+    </div>
+  </body>
+</html>
