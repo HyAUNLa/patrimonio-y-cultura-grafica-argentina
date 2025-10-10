@@ -45,6 +45,7 @@
 #botones {
   display: flex;
   gap: 1rem;
+  margin-bottom: 15px;
 }
 
 #botones button {
@@ -59,11 +60,26 @@
 }
 
 #botones button:hover {
-  background-color: #f2e8e8;
+  background-color: #bd8181;
+  color: #faf6f6;
+  border: 2px solid #bd8181;
 }
 
 #botones button.activo {
   background-color: #91001f;
   color: #faf6f6;
   font-weight: 600;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .revistas .content {
+    flex-direction: column;
+  }
+  .revistas aside {
+    width: 100%;
+  }
+  .revistas main {
+    width: 100%;
+  }
 }
