@@ -51,7 +51,7 @@
 
           <h6>NOTAS</h6>
           <p>
-            Éxito gráfico, lleva como subtítulo “revista mensual sudamericana de
+            Éxito gráfico, lleva como subtítulo “Revista Mensual Sudamericana de
             Artes Gráficas”. Inició su aparición con el primer número de agosto
             de 1905 bajo la dirección de Antonio Pellicer estando a cargo de la
             edición de la Revista la casa Curt Berger y Compañía.
@@ -61,112 +61,13 @@
 
       <main>
         <div id="botones">
+          <button data-anio="1905">1905</button>
+          <button data-anio="1906">1906</button>
           <button data-anio="1907">1907</button>
-          <button data-anio="1908">1908</button>
-          <button data-anio="1909">1909</button>
         </div>
         <div id="revistas-container"></div>
       </main>
-
-      <script>
-        const revistas = [
-          {
-            imagen: "../img/revistas/EG_0001.png",
-            titulo: "Éxito Gráfico",
-            anio: 1907,
-            volumen: 11,
-            numero: "Nº 15",
-          },
-          {
-            imagen: "../img/revistas/EG_0002.png",
-            titulo: "Éxito Gráfico",
-            anio: 1907,
-            volumen: 12,
-            numero: "Nº 16",
-          },
-          {
-            imagen: "../img/revistas/EG_0003.png",
-            titulo: "Éxito Gráfico",
-            anio: 1908,
-            volumen: 13,
-            numero: "Nº 17",
-          },
-          {
-            imagen: "../img/revistas/EG_0004.png",
-            titulo: "Éxito Gráfico",
-            anio: 1908,
-            volumen: 14,
-            numero: "Nº 18",
-          },
-          {
-            imagen: "../img/revistas/EG_0005.png",
-            titulo: "Éxito Gráfico",
-            anio: 1909,
-            volumen: 15,
-            numero: "Nº 19",
-          },
-          {
-            imagen: "../img/revistas/EG_0006.png",
-            titulo: "Éxito Gráfico",
-            anio: 1909,
-            volumen: 16,
-            numero: "Nº 20",
-          },
-        ];
-
-        const contenedor = document.getElementById("revistas-container");
-        const botones = document.querySelectorAll("#botones button");
-
-        function renderRevistas(filtroAnio = null) {
-          contenedor.innerHTML = "";
-          const filtradas = filtroAnio
-            ? revistas.filter((r) => r.anio === filtroAnio)
-            : revistas;
-          filtradas.forEach((revista) => {
-            const card = document.createElement("div");
-            card.className = "revista-infocard";
-
-            const imagen = revista?.imagen || "../img/revistas/placeholder.png";
-            const titulo = revista?.titulo || "Título no disponible";
-            const anio = revista?.anio ?? "—";
-            const volumen = revista?.volumen ?? "—";
-            const numero = revista?.numero || "—";
-
-            card.innerHTML = `
-      <img src="${imagen}" alt="${titulo}">
-      <h3>${titulo}</h3>
-      <p>Año ${anio} - Volumen ${volumen}</p>
-      <p>${numero}</p>
-    `;
-
-            const img = card.querySelector("img");
-            img.onerror = () => {
-              img.src = "../img/revistas/placeholder.png";
-            };
-
-            contenedor.appendChild(card);
-          });
-        }
-
-        botones.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            botones.forEach((b) => b.classList.remove("activo"));
-            btn.classList.add("activo");
-            const anio = parseInt(btn.getAttribute("data-anio"));
-            renderRevistas(anio);
-          });
-        });
-
-        renderRevistas();
-      </script>
-
-      <style>
-        #botones button.activo {
-          background-color: #91001f;
-          color: #fff;
-          font-weight: 700;
-        }
-      </style>
+      <script src="revistas.js"></script>
     </div>
   </body>
 </html>
