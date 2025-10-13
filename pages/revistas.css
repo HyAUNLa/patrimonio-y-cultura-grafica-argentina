@@ -49,9 +49,9 @@
 }
 
 #botones button {
-  border: 2px solid #91001f;
+  border: 2px solid var(--violeta-depto);
   background-color: #faf6f6;
-  color: #91001f;
+  color: var(--violeta-depto);
   height: 40px;
   width: 110px;
   border-radius: 20px;
@@ -61,13 +61,13 @@
 }
 
 #botones button:hover {
-  background-color: #bd8181;
+  background-color: #b081bd;
   color: #faf6f6;
-  border: 2px solid #bd8181;
+  border: 2px solid #b081bd;
 }
 
 #botones button.activo {
-  background-color: #91001f;
+  background-color: var(--violeta-depto);
   color: #faf6f6;
   font-weight: 600;
   pointer-events: none;
