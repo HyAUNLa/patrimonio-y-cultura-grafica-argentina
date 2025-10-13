@@ -134,6 +134,7 @@ main {
     max-width: 750px;
     align-self: flex-start;
     gap: 25px;
+    animation: slide-right 0.5s linear both;
 }
 
 #hero h3 {
@@ -303,7 +304,7 @@ header nav a::after, .about nav a::after {
     content: "";
     height: 2px;
     width: 0%;
-    background-color: #830BA1; /* Color random temporal */
+    background-color: var(--violeta-depto);
     display: block;
     position: relative;
     bottom: -3px;
@@ -319,4 +320,46 @@ header nav a:hover::after, .about nav a:hover::after, .about nav a:focus::after{
 
 .about nav a{
     width: 100%;
+}
+
+@keyframes slide-right{
+  0%{
+    opacity: 0;
+    transform:translateX(-100px)}
+  100%{
+    opacity: 1;
+    transform:translateX(15px)}
+}
+
+@keyframes slide-left{
+  0%{
+    opacity: 0;
+    transform:translateX(100px)}
+  100%{
+    opacity: 1;
+    transform:translateX(0px)}
+}
+
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+        scale: 0.5;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+#miembros div img, #docentes-inv div {
+    animation: appear ease-in;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+#miembros div article, #ficha-tec, #lab-diseno, #unla, #ads-estudiantes article {
+    animation: slide-left ease-in;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%; /* Seguro después cambie algo de esto a js para que no anime al volver del scroll */
 }
