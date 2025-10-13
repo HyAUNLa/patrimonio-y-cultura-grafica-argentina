@@ -363,3 +363,7 @@ header nav a:hover::after, .about nav a:hover::after, .about nav a:focus::after{
     animation-timeline: view();
     animation-range: entry 0 cover 40%; /* Seguro después cambie algo de esto a js para que no anime al volver del scroll */
 }
+
+@view-transition {
+    navigation: auto;
+}
