@@ -126,8 +126,9 @@ h1 {
 
 .textos-sobre-imagen,
 .textos-sobre-imagen h3,
-#hero p {
+.hero-fondo p {
     color: #FFFFFF
+    letter-spacing: 0.03rem;
 }
 
 .hero-fondo {
@@ -231,18 +232,26 @@ h1 {
     p {
         max-width: 624px;
     }
+}
 
-    /*
-    h3 {
-        font-size: 1rem;
-        padding-bottom: 5px;
+#inv-graduados,
+#ads-estudiantes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 30px;
+
+    article {
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
     }
 
-    h4 {
-        font-size: 34px;
-        padding-bottom: 15px;
-        font-weight: 500;
-    }*/
+    h2 {
+        width: 100%
+    }
 }
 
 #ficha-tec,
