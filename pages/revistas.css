@@ -30,7 +30,7 @@
 }
 
 .revistas h2 {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .revista-infocard {
@@ -71,6 +71,25 @@
   color: #faf6f6;
   font-weight: 600;
   pointer-events: none;
+}
+
+#revista-toggle {
+  margin-bottom: 60px;
+}
+#revista-toggle button {
+  border: none;
+  display: inline;
+  border-radius: 0;
+  height: auto;
+  width: auto;
+  margin-right: 10px;
+}
+
+#revista-toggle button:hover,
+#revista-toggle button.activo {
+  background-color: #faf6f6;
+  color: var(--violeta-depto);
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {

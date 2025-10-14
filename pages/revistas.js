@@ -1,4 +1,4 @@
-const revistas = [
+const revistasExitoGrafico = [
   {
     imagen: "../img/revistas/exito_grafico/EG-1905_001.png",
     titulo: "Éxito Gráfico",
@@ -188,52 +188,224 @@ const revistas = [
   },
 ];
 
-const contenedor = document.getElementById("revistas-container");
-const botones = document.querySelectorAll("#botones button");
+const revistasArgentinaGrafica = [
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_001.png",
+    titulo: "Argentina Gráfica",
+    anio: 1936,
+    volumen: 10,
+    numero: "Nº 9",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_002.png",
+    titulo: "Argentina Gráfica",
+    anio: 1937,
+    volumen: 1,
+    numero: "Nº 18",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_003.png",
+    titulo: "Argentina Gráfica",
+    anio: 1938,
+    volumen: 11,
+    numero: "Nº 29",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_004.png",
+    titulo: "Argentina Gráfica",
+    anio: 1938,
+    volumen: 12,
+    numero: "Nº 30",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_005.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 1,
+    numero: "Nº 43",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_006.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 1,
+    numero: "Nº 44",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_007.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 2,
+    numero: "Nº 45",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_008.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 4,
+    numero: "Nº 46",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_009.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 5,
+    numero: "Nº 47",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_010.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 6,
+    numero: "Nº 48",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_011.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 7,
+    numero: "Nº 49",
+    link: "",
+  },
+  {
+    imagen: "../img/revistas/argentina_grafica/AG-1937_012.png",
+    titulo: "Argentina Gráfica",
+    anio: 1940,
+    volumen: 9,
+    numero: "Nº 51",
+    link: "",
+  },
+];
 
+const revistaInfo = document.getElementById("revista-info");
+const contenedor = document.getElementById("revistas-container");
+const botonesContainer = document.getElementById("botones");
+const btnExito = document.getElementById("btn-exito");
+const btnArgentina = document.getElementById("btn-argentina");
+
+const data = {
+  exito: {
+    titulo: "Éxito Gráfico",
+    info: `
+      <h2>Éxito Gráfico</h2>
+      <div>
+        <h6>TÍTULO</h6>
+        <p>Éxito Gráfico. Revista mensual sudamericana de Artes Gráficas.</p>
+        <h6>TIRADA</h6>
+        <p>1905 (agosto) – 1916</p>
+        <h6>DIRECCIÓN</h6>
+        <p>Antonio Pellicer</p>
+        <h6>CASA EDITORIAL</h6>
+        <p>Curt Berger y Compañía</p>
+        <h6>NOTAS</h6>
+        <p>Éxito gráfico, lleva como subtítulo “Revista Mensual Sudamericana de Artes Gráficas”.
+        Inició su aparición con el primer número de agosto de 1905 bajo la dirección de Antonio Pellicer
+        estando a cargo de la edición la casa Curt Berger y Compañía.</p>
+      </div>
+    `,
+    revistas: revistasExitoGrafico,
+    anios: [1905, 1906, 1907],
+  },
+
+  argentina: {
+    titulo: "Argentina Gráfica",
+    info: `
+      <h2>Argentina Gráfica</h2>
+      <div>
+        <h6>TÍTULO</h6>
+        <p>Argentina Gráfica. Revista de publicación mensual de la SIGA, Sociedad Industriales Gráficos de la Argentina</p>
+        <h6>TIRADA</h6>
+        <p>1935 – 1940</p>      
+        <h6>DIRECCIÓN</h6>
+        <p>E. Garello</p>
+      </div>
+    `,
+    revistas: revistasArgentinaGrafica,
+    anios: [1936, 1937, 1938, 1940],
+  },
+};
+
+let revistaActual = "exito";
+
+// --- FUNCIÓN: renderizar los botones de año dinámicamente ---
+function renderBotones() {
+  const { anios } = data[revistaActual];
+  botonesContainer.innerHTML = "";
+  anios.forEach((anio) => {
+    const btn = document.createElement("button");
+    btn.textContent = anio;
+    btn.dataset.anio = anio;
+    btn.addEventListener("click", () => {
+      document
+        .querySelectorAll("#botones button")
+        .forEach((b) => b.classList.remove("activo"));
+      btn.classList.add("activo");
+      renderRevistas(anio);
+    });
+    botonesContainer.appendChild(btn);
+  });
+}
+
+// --- FUNCIÓN: renderizar revistas según el año seleccionado ---
 function renderRevistas(filtroAnio = null) {
+  const revistas = data[revistaActual].revistas;
   contenedor.innerHTML = "";
   const filtradas = filtroAnio
     ? revistas.filter((r) => r.anio === filtroAnio)
     : revistas;
-  filtradas.forEach((revista) => {
+
+  filtradas.forEach((r) => {
     const card = document.createElement("div");
     card.className = "revista-infocard";
-
-    const imagen = revista?.imagen || "../img/revistas/placeholder.png";
-    const titulo = revista?.titulo || "Título no disponible";
-    const anio = revista?.anio ?? "—";
-    const volumen = revista?.volumen ?? "—";
-    const numero = revista?.numero || "—";
-    const link =
-      revista?.link ||
-      "hd/es/results?parent=84769f9f-ead4-4da6-bd40-64e35aeaa6bc&t=alt-asc&s=0";
-
     card.innerHTML = `
-            <a href="https://hemerotecadigital.bne.es/${link}" target="_blank">
-      <img src="${imagen}" alt="${titulo}">
+      <a href="https://hemerotecadigital.bne.es/${
+        r.link || "#"
+      }" target="_blank">
+        <img src="${r.imagen || "../img/revistas/placeholder.png"}" alt="">
       </a>
-      <h3>${titulo}</h3>
-      <p>Año ${anio} - Volumen ${volumen}</p>
-      <p>${numero}</p>
+      <h3>${r.titulo || "—"}</h3>
+      <p>Año ${r.anio || "—"} - Volumen ${r.volumen || "—"}</p>
+      <p>${r.numero || "—"}</p>
     `;
-
-    const img = card.querySelector("img");
-    img.onerror = () => {
-      img.src = "../img/revistas/placeholder.png";
-    };
-
+    card.querySelector("img").onerror = () =>
+      (card.querySelector("img").src = "../img/revistas/placeholder.png");
     contenedor.appendChild(card);
   });
 }
 
-botones.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    botones.forEach((b) => b.classList.remove("activo"));
-    btn.classList.add("activo");
-    const anio = parseInt(btn.getAttribute("data-anio"));
-    renderRevistas(anio);
-  });
+// --- EVENTOS DE CAMBIO DE REVISTA ---
+btnExito.addEventListener("click", () => {
+  revistaActual = "exito";
+  revistaInfo.innerHTML = data.exito.info;
+  renderBotones();
+  renderRevistas();
+
+  btnExito.classList.add("activo");
+  btnArgentina.classList.remove("activo");
 });
 
+btnArgentina.addEventListener("click", () => {
+  revistaActual = "argentina";
+  revistaInfo.innerHTML = data.argentina.info;
+  renderBotones();
+  renderRevistas();
+
+  btnArgentina.classList.add("activo");
+  btnExito.classList.remove("activo");
+});
+
+// --- INICIALIZACIÓN ---
+revistaInfo.innerHTML = data.exito.info;
+btnExito.classList.add("activo");
+renderBotones();
 renderRevistas();
