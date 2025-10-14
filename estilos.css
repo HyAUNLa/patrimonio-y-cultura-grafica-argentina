@@ -16,6 +16,7 @@
     text-decoration: none;
     list-style: none;
     align-items: center;
+    scroll-behavior: smooth;
 }
 
 .limit-width-container {
@@ -240,6 +241,7 @@ h1 {
 
     div {
         display: flex;
+        flex-wrap: wrap;
         gap: 24px;
         align-items: flex-start;
         padding-bottom: 50px;
@@ -352,7 +354,7 @@ header nav a:hover::after, .about nav a:hover::after, .about nav a:focus::after{
     }
 }
 
-#miembros div img, #docentes-inv div {
+#miembros div img, #docentes-inv div, #inv-graduados article {
     animation: appear ease-in;
     animation-timeline: view();
     animation-range: entry 0 cover 40%;
@@ -362,6 +364,11 @@ header nav a:hover::after, .about nav a:hover::after, .about nav a:focus::after{
     animation: slide-left ease-in;
     animation-timeline: view();
     animation-range: entry 0 cover 40%; /* Seguro después cambie algo de esto a js para que no anime al volver del scroll */
+}
+
+
+#unla {
+    animation-range: entry 0 cover 30%;
 }
 
 @view-transition {
