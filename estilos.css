@@ -155,6 +155,20 @@ h1 {
     align-items: flex-start;
 }
 
+
+/*-------INDEX HERO-----*/
+
+.index-hero {
+    background-image: url(img/revista-grafica-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-position: 58vw;
+    background-position-y: 4vh;
+    background-size: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 /*-------ACERCA DE------*/
 
 .textos-sobre-imagen,
@@ -373,4 +387,13 @@ header nav a:hover::after, .about nav a:hover::after, .about nav a:focus::after{
 
 @view-transition {
     navigation: auto;
+}
+
+/*---- MEDIA ----*/
+@media (max-width: 1000px) {
+    
+    .index-hero {
+        background: none; /* De momento hice que desaparezca para que no moleste a la lectura, después se repiensa */
+    }
+
 }
